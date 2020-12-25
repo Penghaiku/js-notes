@@ -8,7 +8,7 @@ const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`监考老师电话号�
 const workSheetsFromFile = xlsx.parse(`监考老师电话号码库.xlsx`);
 */
 // 解析得到文档中的所有 sheet
-var tele = xlsx.parse('监考老师电话号码库.xlsx');
+var tele = xlsx.parse('./01/监考老师电话号码库.xlsx');
 
 //console.log(JSON.stringify(tele));
 
@@ -17,12 +17,15 @@ tele.forEach(function(sheet){
     console.log(sheet['name']);
     // 读取每行内容
     for(var rowId in sheet['data']){
-        console.log(rowId);
-        var row=sheet['data'][rowId];
-        console.log(row);
+        if(rowId>=1){
+            console.log(rowId);
+            var row=sheet['data'][rowId];
+            console.log(row);
+        }
+
     }
 });
-var exam = xlsx.parse('14-17周专业课考试安排表L.xlsx');
+var exam = xlsx.parse('./01/14-17周专业课考试安排表L.xlsx');
 //console.log(JSON.stringify(exam));
 exam.forEach(function(sheet){
     console.log(sheet['name']);
