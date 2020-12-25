@@ -13,7 +13,8 @@ var text = '测试使用';
 // 指定发送的模板编号
 var tpl_id = 3569052;
 //4174182
-// 指定发送模板的内容
+// 
+
 //var tpl_value =  {'#name#':'6666','#code#':'ECUT'};
 var tpl_value ={'#page_size#':5}
 // 查询账户信息https地址
