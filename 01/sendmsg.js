@@ -73,6 +73,7 @@ function post(uri,content,host){
         res.setEncoding('utf8');  
         res.on('data', function (chunk) {  
             console.log('\n BODY: ' + chunk );  
+            //  fs.writeFile('./count_SMS.json',JSON.stringify(chunk, null,8),function(error){
             fs.writeFile('./count_SMS.json',chunk,function(error){
 	        if(error){
 	        	console.log('文件写入失败')
