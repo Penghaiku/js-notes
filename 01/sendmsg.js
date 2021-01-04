@@ -21,7 +21,7 @@ var tpl_value ={'#page_size#':5}
 var get_user_info_uri = '/v2/user/get.json';
 // 智能匹配模板发送https地址
 var sms_host = 'sms.yunpian.com';
-var page_size =  1;
+var page_size =  5;
 //var voice_host = 'voice.yunpian.com';
 
 //send_sms_uri = '/v2/sms/single_send.json';
@@ -65,21 +65,14 @@ function post(uri,content,host){
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'  
         }  
     };
-
-
     var req = https.request(options, function (res) {  
         // console.log('STATUS: ' + res.statusCode);  
         // console.log('HEADERS: ' + JSON.stringify(res.headers));  
         res.setEncoding('utf8');  
         res.on('data', function (chunk) {  
             console.log('\n BODY: ' + chunk );  
-            //  fs.writeFile('./count_SMS.json',JSON.stringify(chunk, null,8),function(error){
-            fs.writeFile('./count_SMS.json',chunk,function(error){
-	        if(error){
-	        	console.log('文件写入失败')
-	        }else
-	        console.log('文件写入成功')
-})
+            //将每次查询的结果作为一个数组附加到 文件末尾
+            fs.appendFileSync('./01/temp.json', chunk, { mode: 0o600 });
         });  
     }); 
     //console.log(content);
