@@ -1,16 +1,16 @@
 const {app,BrowserWindow} = require("electron")
 const path = require("path")
-
 //  /cxxx
 //path.join("/c",'xxxxxxxx')
-
-
 const createWindow=()=>{
     const mainWindow = new BrowserWindow({
-        width:800,
-        height:600
+        width:600,
+        height:400,
+        webPreferences: {
+            nodeIntegration:true
+        }
     })
-    mainWindow.loadFile(path.join(__dirname,"青衫不是山.html"))
+    mainWindow.loadFile(path.join(__dirname,"index.html"))
 }
 
 
