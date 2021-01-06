@@ -17,9 +17,6 @@ window.onload = () => {
 		        console.log('文件写入成功,请查看当前目录的 temp.json 文件')
 		        }
 		    })
-
         })
-
-
     }
 }
